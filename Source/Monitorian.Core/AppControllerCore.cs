@@ -34,12 +34,15 @@ public class AppControllerCore
 	public NotifyIconContainer NotifyIconContainer { get; }
 	public WindowPainter WindowPainter { get; }
 
+	private readonly HotkeyService _hotkeys;
+
 	private readonly SessionWatcher _sessionWatcher;
 	private readonly PowerWatcher _powerWatcher;
 	private readonly DisplaySettingsWatcher _displaySettingsWatcher;
 	private readonly DisplayInformationWatcher _displayInformationWatcher;
 	private readonly BrightnessWatcher _brightnessWatcher;
 	private readonly BrightnessConnector _brightnessConnector;
+	private readonly CurrentMonitorService _currentMonitorService;
 
 	protected OperationRecorder Recorder { get; } = new();
 
@@ -62,6 +65,8 @@ public class AppControllerCore
 		_displayInformationWatcher = new DisplayInformationWatcher();
 		_brightnessWatcher = new BrightnessWatcher();
 		_brightnessConnector = new BrightnessConnector();
+		_currentMonitorService = new CurrentMonitorService(Monitors.Select(m => m._monitor));
+		_hotkeys = new HotkeyService(_currentMonitorService);
 	}
 
 	public virtual async Task InitiateAsync()

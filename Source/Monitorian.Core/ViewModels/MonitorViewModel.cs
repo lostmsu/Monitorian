@@ -14,7 +14,7 @@ public class MonitorViewModel : ViewModelBase
 	private readonly AppControllerCore _controller;
 	public SettingsCore Settings => _controller.Settings;
 
-	private IMonitor _monitor;
+	internal IMonitor _monitor;
 
 	public MonitorViewModel(AppControllerCore controller, IMonitor monitor)
 	{

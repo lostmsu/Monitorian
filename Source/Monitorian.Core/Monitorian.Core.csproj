@@ -51,8 +51,11 @@
   <ItemGroup>
     <Compile Include="AppControllerCore.cs" />
     <Compile Include="AppKeeper.cs" />
+    <Compile Include="Collections\IValueProvider.cs" />
     <Compile Include="Collections\ObservableDictionary.cs" />
     <Compile Include="Collections\ObservableKeyedList.cs" />
+    <Compile Include="Collections\SynchronizedEnumerable.cs" />
+    <Compile Include="Collections\SynchronizedEnumerator.cs" />
     <Compile Include="Common\BindableBase.cs" />
     <Compile Include="Helper\ArraySearch.cs" />
     <Compile Include="Helper\EnumerableExtension.cs" />
@@ -62,6 +65,8 @@
     <Compile Include="Helper\SimpleSerialization.cs" />
     <Compile Include="Helper\StringExtension.cs" />
     <Compile Include="Helper\Throttle.cs" />
+    <Compile Include="Models\CurrentMonitorService.cs" />
+    <Compile Include="Models\HotkeyService.cs" />
     <Compile Include="Models\Monitor\DdcMonitorItem.cs" />
     <Compile Include="Models\Monitor\DeviceContext.cs" />
     <Compile Include="Models\Monitor\DeviceConversion.cs" />
@@ -285,6 +290,12 @@
     </PackageReference>
     <PackageReference Include="Microsoft.Xaml.Behaviors.Wpf">
       <Version>1.1.77</Version>
+    </PackageReference>
+    <PackageReference Include="MouseKeyHook">
+      <Version>5.7.1</Version>
+    </PackageReference>
+    <PackageReference Include="PInvoke.User32">
+      <Version>0.7.124</Version>
     </PackageReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
